@@ -6,7 +6,7 @@ let adminPage = null;
 let userPage = null;
 
 before(() => {
-  // Initialize LoginPage object and navigate to Admin Page
+  
   loginPage = new LoginPage();
   loginPage.visit();
 

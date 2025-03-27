@@ -1,6 +1,6 @@
 class UserPage {
     visit() {
-      cy.visit("/admin/user-management"); // Adjust URL based on your app
+      cy.visit("/admin/user-management"); 
     }
   
     clickAddUser() {
