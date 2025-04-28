@@ -108,22 +108,4 @@ public abstract class BaseWebContextSensitiveTest extends AbstractTransactionalJ
             }
         }
     }
-
-    /**
-     * Helper method to clear out all rows in specified tables within the given
-     * dataset in the current connection.
-     *
-     * @param tableNames The names of the tables to truncate.
-     * @throws SQLException If an error occurs during truncation.
-     */
-    protected void cleanRowsInCurrentConnection(String[] tableNames) throws SQLException, DatabaseUnitException {
-        IDatabaseConnection connection = new DatabaseConnection(dataSource.getConnection());
-        try (Connection conn = connection.getConnection(); Statement stmt = conn.createStatement()) {
-            for (String tableName : tableNames) {
-                String truncateQuery = "TRUNCATE TABLE " + tableName + " RESTART IDENTITY CASCADE";
-                logger.info("Truncating table: {}", tableName);
-                stmt.execute(truncateQuery);
-            }
-        }
-    }
 }
